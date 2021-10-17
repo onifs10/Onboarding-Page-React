@@ -20,6 +20,7 @@ const navItemsData: navItem[] = [
   },
 ];
 const Forms = (): JSX.Element => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [navItems, setNavItems] = useState<navItem[]>(navItemsData);
   const [selected, setSelected] = useState<number>(1);
 
