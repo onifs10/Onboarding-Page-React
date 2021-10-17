@@ -1,0 +1,17 @@
+@import '../../../_colors';
+.form-title {
+  color: $dark;
+  font-weight: bold;
+  font-size: 26px;
+  width: 100%;
+  margin-top: 1rem;
+  &.m {
+    margin-bottom: 2.3rem;
+  }
+}
+.form-description {
+  font-weight: normal;
+  font-size: 14px;
+  margin-bottom: 2.3rem;
+  color: $gray-7d;
+}

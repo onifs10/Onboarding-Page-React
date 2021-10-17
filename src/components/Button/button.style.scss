@@ -1,0 +1,18 @@
+@import '../../_colors';
+button {
+    padding: 1rem 1.5rem;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &.danger {
+        background-color: $danger;
+    }
+    &.primary {
+        background-color: $primary;
+    }
+}

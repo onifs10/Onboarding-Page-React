@@ -1,0 +1,65 @@
+@import '../../../__colors';
+
+.navs {
+    display: flex;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid $gray-e9;
+    }
+    @media screen and (max-width: 1024px) {
+        margin-top: 4rem;
+    }
+    .nav-item {
+        align-items: center;
+        color: $gray-a5;
+        cursor: pointer;
+        display: none;
+        justify-content: space-between;
+        margin-right: 2.5rem;
+        @media screen and (min-width: 768px) {
+            display: flex;
+        }
+        &.checked {
+            .id {
+                background-color: $faint-blue;
+                color: $primary;
+            }
+        }
+        .id {
+            width: 1.95rem;
+            height: 1.95rem;
+            margin-right: 0.7rem;
+            text-align: center;
+            font-size: 13.64px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3.1px;
+            background-color: $gray-e4;
+        }
+        .name {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            display: none;
+            @media screen and (min-width: 1300px) {
+                display: block;
+            }
+        }
+
+        &.active {
+            .id {
+                background-color: $primary;
+                color: #ffffff;
+            }
+            .name {
+                color: $dark;
+                @media screen and (max-width: 1300px) and (min-width: 450px) {
+                    display: block;
+                }
+            }
+            display: flex;
+        }
+    }
+}
