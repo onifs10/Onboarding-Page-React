@@ -1,4 +1,3 @@
-import * as CSS from 'csstype';
 import { RadioInputType } from './radio.type';
 
 const Radio = (Props: RadioInputType<any>): JSX.Element => {

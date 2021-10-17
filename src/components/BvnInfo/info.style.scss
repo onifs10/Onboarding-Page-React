@@ -7,7 +7,7 @@
   padding: 1rem;
   margin-top: 1.5rem;
   .info-body {
-    transition: max-height 1s cubic-bezier(0.09, 0.83, 0.84, 0.4);
+    transition: max-height 1s cubic-bezier(0, 0.2, 1, 0.92);
     max-height: 100vh;
     overflow: hidden;
     &.hide {

@@ -2,7 +2,7 @@
 .inputs-div {
   width: 100%;
   transition-delay: 0ms;
-  transition: max-height 1s cubic-bezier(0.09, 0.83, 0.84, 0.4);
+  transition: max-height 1s cubic-bezier(0, 0.2, 1, 0.92);
   max-height: 50vh;
   overflow-y: hidden;
   padding-bottom: 1.5rem;

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { VerificationMethod } from '../../layout/Forms/forms.type';
 import Label from '../Label';
 import './radio.style.scss';
