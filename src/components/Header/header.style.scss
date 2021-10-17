@@ -1,12 +1,12 @@
 .header {
-    width: 100%;
-    display: none;
-    justify-content: flex-end;
-    padding: 35px 0;
+  width: 100%;
+  display: none;
+  justify-content: flex-end;
+  padding-bottom: 35px;
 }
 
 @media screen and (min-width: 1024px) {
-    .header {
-        display: flex;
-    }
+  .header {
+    display: flex;
+  }
 }

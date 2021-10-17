@@ -4,7 +4,7 @@ import './details.style.scss';
 const FormDetails = (Props: FormDetailsProp): JSX.Element => {
   return (
     <>
-      <div className={`form-title ${Props.description ? 'm' : ''}`}>
+      <div className={`form-title ${Props.description ? '' : 'm'}`}>
         {Props.title}
       </div>
       {Props.description ? (

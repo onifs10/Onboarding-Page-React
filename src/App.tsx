@@ -2,7 +2,7 @@ import React from 'react';
 import image from './assets/illustration.png';
 import './App.scss';
 import Header from './components/Header';
-import Forms from './components/Forms';
+import Forms from './layout/Forms';
 
 function App() {
     return (

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import VerifyAccount from './AccountVerify/verify_account';
 import './forms.style.scss';
-import Navs from './navs/navs.component';
-import { navItem } from './navs/navs.type';
-import { Steps } from './steps';
+import Navs from '../../components/Navs';
+import { navItem } from '../../components/Navs/navs.type';
+import { Steps } from '../../components/steps';
 
 const navItemsData: navItem[] = [
   {
@@ -40,10 +40,10 @@ const Forms = (): JSX.Element => {
             selected < 2 ? 'right' : ''
           }`}
         >
-          <VerifyAccount onComplete={() => {}} />
+          {/* <VerifyAccount onComplete={() => {}} /> */}
         </div>
         <div className={`forms_div ${selected < 3 ? 'right' : ''}`}>
-          <VerifyAccount onComplete={() => {}} />
+          {/* <VerifyAccount onComplete={() => {}} /> */}
         </div>
       </div>
     </div>

@@ -18,6 +18,7 @@ const Navs = (Props: NavProps): JSX.Element => {
             item.isChecked && item.id !== selected ? 'checked' : ''
           } ${item.active || item.id === selected ? 'active' : ''}`}
           onClick={() => handleSelected(item.id)}
+          key={item.id}
         >
           <div className="id">
             {item.isChecked && !(item.active || item.id === selected) ? (

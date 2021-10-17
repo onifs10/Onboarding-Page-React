@@ -4,7 +4,7 @@ import './header.style.scss';
 const Header = (): JSX.Element => {
   return (
     <div className="header">
-      <Button type="danger" onClick={() => {}}>
+      <Button variant="danger" onClick={() => {}}>
         Logout
       </Button>
     </div>

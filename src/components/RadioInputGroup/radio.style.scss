@@ -1,0 +1,36 @@
+@import '../../colors';
+.radios {
+  display: flex;
+  align-items: center;
+  .input-container {
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    color: $dark;
+    font-size: 14px;
+    margin-right: 21px;
+    font-weight: 500;
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      display: none;
+      & + .radio-text {
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+        border: 1px solid rgba(20, 23, 55, 0.1);
+        background-color: $gray-f5;
+      }
+      &:checked + .radio-text {
+        border-color: red;
+        border: 1px solid $primary;
+        background-color: $faint-blue;
+      }
+    }
+  }
+}
