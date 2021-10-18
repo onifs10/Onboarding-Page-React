@@ -51,8 +51,8 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
   };
 
   const buttonDisabled =
-    (method === VerificationMethod.BVN && !bvnNumber) ||
-    (method === VerificationMethod.PA && !bank && !accountNumber);
+    (method === VerificationMethod.BVN && +String(bvnNumber).length < 11) ||
+    (method === VerificationMethod.PA && (!bank || !accountNumber));
   const handleformSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     //validation should be improved to give user feedback
     if (buttonDisabled) {

@@ -14,16 +14,17 @@
   .side-section {
     height: 100%;
     max-height: 100vh;
-    overflow-x: auto;
-    min-width: 490px;
     background-color: $side-background;
-    display: none;
+    max-width: 0;
+    min-width: 0;
+    overflow: hidden;
     flex: 0 0 33%;
+    display: flex;
     align-items: flex-end;
     justify-content: center;
-    transition: min-width 1s cubic-bezier(0, 0.2, 1, 0.92);
+    transition: min-width 400ms cubic-bezier(0, 0.2, 1, 0.92);
     @media screen and (min-width: 1024px) {
-      display: flex;
+      max-width: 500px;
     }
     img {
       margin-bottom: 8.5rem;
