@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { NavProps } from './navs.type';
 import './navs.style.scss';
 
