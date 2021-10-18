@@ -7,6 +7,7 @@ const Button = (Props: ButtonProps): JSX.Element => {
       className={Props.variant}
       onClick={() => Props.onClick && Props.onClick}
       disabled={Props.disabled}
+      data-testid={`button-${Props.children}`}
     >
       {Props.children}
     </button>

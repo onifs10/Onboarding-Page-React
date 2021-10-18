@@ -13,10 +13,13 @@ const SelectInput = (Props: SelectPropTyes): JSX.Element => {
           value={Props.value}
           onChange={(e) => Props.onChange(e.target.value)}
           required={Props.required || false}
+          data-testid={`select-${Props.name}`}
         >
           <option value="">...</option>
           {Props.options.map((item, idx) => (
-            <option value={item.value}>{item.label}</option>
+            <option value={item.value} key={idx}>
+              {item.label}
+            </option>
           ))}
         </select>
         <div className="icon">

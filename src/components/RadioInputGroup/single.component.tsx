@@ -7,6 +7,7 @@ const Radio = (Props: RadioInputType): JSX.Element => {
         type="radio"
         name={Props.name}
         value={Props.value}
+        data-testid={`radio-input-${Props.label}`}
         defaultChecked={Props.checked}
         onChange={Props.onChange}
       />

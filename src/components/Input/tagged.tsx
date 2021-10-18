@@ -22,6 +22,7 @@ const InputTagged = (Props: InputPropTyes): JSX.Element => {
           onChange={(e) => Props.onChange(e.target.value)}
           required={Props.required}
           ref={setInput}
+          data-testid={`tagged-input-${Props.label}`}
           onFocus={() => setFocus((value) => !value)}
           onBlur={() => setFocus((value) => !value)}
         />

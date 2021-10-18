@@ -18,6 +18,7 @@ const Input = (Props: InputPropTyes): JSX.Element => {
         value={Props.value}
         onChange={(e) => Props.onChange(e.target.value)}
         required={Props.required}
+        data-testid={`input-${Props.name}`}
         ref={setInput}
       />
     </div>
