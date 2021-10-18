@@ -6,6 +6,7 @@ import { navItem } from '../../components/Navs/navs.type';
 import { Steps } from '../../components/steps';
 import SocialForm from './Socials';
 import BuisnessForm from './Buisness';
+import { FormsProps } from './forms.type';
 
 const navItemsData: navItem[] = [
   {
@@ -21,7 +22,7 @@ const navItemsData: navItem[] = [
     name: 'Business Category',
   },
 ];
-const Forms = (): JSX.Element => {
+const Forms = (Props: FormsProps): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [navItems, setNavItems] = useState<navItem[]>(navItemsData);
   const [selected, setSelected] = useState<number>(1);
@@ -55,6 +56,13 @@ const Forms = (): JSX.Element => {
   const handleBuisnessForm = () => {
     // make axios call to api with data passed from the form
     checkTab(3);
+    let notDone = navItems.slice(0, 1).find((item) => !item.isChecked);
+    if (notDone) {
+      setSelected(1);
+      return;
+    } else {
+      Props.onComplete && Props.onComplete({ data: {} });
+    }
   };
 
   return (

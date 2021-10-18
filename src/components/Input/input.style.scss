@@ -11,6 +11,9 @@
     height: 54px;
     font-size: 16px;
     padding: 0 0.5rem;
+    &:focus {
+      border-color: rgba($primary, 0.2);
+    }
   }
 }
 
@@ -24,6 +27,9 @@
     height: 54px;
     border: 1px solid $gray-e4;
     overflow: hidden;
+    &.focus {
+      border-color: rgba($primary, 0.2);
+    }
     input {
       outline: none;
       font-size: 16px;

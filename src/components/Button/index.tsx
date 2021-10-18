@@ -6,6 +6,7 @@ const Button = (Props: ButtonProps): JSX.Element => {
     <button
       className={Props.variant}
       onClick={() => Props.onClick && Props.onClick}
+      disabled={Props.disabled}
     >
       {Props.children}
     </button>

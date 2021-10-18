@@ -4,6 +4,7 @@ import FormDetails from '../../../components/Details';
 import RadioInputs from '../../../components/RadioInputGroup';
 import { RadioInputType } from '../../../components/RadioInputGroup/radio.type';
 import SelectInput from '../../../components/Select';
+import { SelectOption } from '../../../components/Select/select.type';
 import { BuisnessFormProps, POSType } from '../forms.type';
 import './buisness.style.scss';
 
@@ -15,6 +16,27 @@ const Options: RadioInputType[] = [
   {
     value: POSType.No,
     label: 'No',
+  },
+];
+
+const BuisnessOptions: SelectOption[] = [
+  {
+    label: 'Sole Proprietorship',
+    value: 'sole',
+  },
+  {
+    label: 'Partnership',
+    value: 'partner',
+  },
+];
+const categoryOptions: SelectOption[] = [
+  {
+    label: 'Category A',
+    value: 'sole',
+  },
+  {
+    label: 'Category B',
+    value: 'partner',
   },
 ];
 
@@ -44,8 +66,8 @@ const BuisnessForm = (Props: BuisnessFormProps): JSX.Element => {
               onChange={(value: string) => {
                 setBusinessType(value);
               }}
-              required={false}
-              options={[]}
+              required={true}
+              options={BuisnessOptions}
             />
             <SelectInput
               name={'category'}
@@ -54,8 +76,8 @@ const BuisnessForm = (Props: BuisnessFormProps): JSX.Element => {
               onChange={(value: string) => {
                 setCategory(value);
               }}
-              required={false}
-              options={[]}
+              required={true}
+              options={categoryOptions}
             />
           </div>
           <div className="radio-inputs">
@@ -65,11 +87,16 @@ const BuisnessForm = (Props: BuisnessFormProps): JSX.Element => {
               default={POSType.Yes}
               label={'Do you use POS machines for your business?'}
               onChange={(value) => setPos(value as POSType)}
+              required
             />
           </div>
         </div>
         <div className="form-footer">
-          <Button variant={'primary'} type={'submit'}>
+          <Button
+            variant={'primary'}
+            type={'submit'}
+            disabled={!buisnessType || !category}
+          >
             Complete
           </Button>
         </div>

@@ -5,13 +5,14 @@ import { useState } from 'react';
 
 const InputTagged = (Props: InputPropTyes): JSX.Element => {
   const [input, setInput] = useState<HTMLInputElement | null>();
+  const [focused, setFocus] = useState<boolean>(false);
   const handleFocus = () => {
     input?.focus();
   };
   return (
     <div className="input-group-tagged" onClick={handleFocus}>
       <Label>{Props.label}</Label>
-      <div className="input-container">
+      <div className={`input-container ${focused ? 'focus' : ''}`}>
         <div className="tag">{Props.tag}</div>
         <input
           type={Props.type}
@@ -21,6 +22,8 @@ const InputTagged = (Props: InputPropTyes): JSX.Element => {
           onChange={(e) => Props.onChange(e.target.value)}
           required={Props.required}
           ref={setInput}
+          onFocus={() => setFocus((value) => !value)}
+          onBlur={() => setFocus((value) => !value)}
         />
       </div>
     </div>

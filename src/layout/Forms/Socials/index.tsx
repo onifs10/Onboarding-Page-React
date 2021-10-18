@@ -64,7 +64,7 @@ const SocialForm = (Props: SocialsFormProps): JSX.Element => {
           </div>
         </div>
         <div className="form-footer">
-          <Button variant={'primary'} type={'submit'}>
+          <Button variant={'primary'} type={'submit'} disabled={!abegTag}>
             Confirm Social Handles
           </Button>
         </div>

@@ -50,12 +50,12 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
     }, 1100);
   };
 
+  const buttonDisabled =
+    (method === VerificationMethod.BVN && !bvnNumber) ||
+    (method === VerificationMethod.PA && !bank && !accountNumber);
   const handleformSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     //validation should be improved to give user feedback
-    if (
-      (method === VerificationMethod.BVN && !bvnNumber) ||
-      (method === VerificationMethod.PA && !bank && !accountNumber)
-    ) {
+    if (buttonDisabled) {
       return;
     }
     e.preventDefault();
@@ -126,7 +126,7 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
           </div>
         </div>
         <div className="form-footer">
-          <Button variant={'primary'} type={'submit'}>
+          <Button variant={'primary'} type={'submit'} disabled={buttonDisabled}>
             Continue
           </Button>
         </div>

@@ -17,6 +17,7 @@ const RadioInputs: (Prop: RadioInputsType<string | number>) => JSX.Element = (
             label={item.label}
             checked={Props.default === item.value}
             key={item.value}
+            required={Props.required}
             onChange={(e) => Props.onChange && Props.onChange(+e.target.value)}
           />
         ))}

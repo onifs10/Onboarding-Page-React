@@ -10,19 +10,45 @@
   align-items: center;
   height: 100vh;
   width: 100%;
+  overflow-x: hidden;
   .side-section {
     height: 100%;
     max-height: 100vh;
     overflow-x: auto;
-    min-width: 480px;
+    min-width: 490px;
     background-color: $side-background;
     display: none;
+    flex: 0 0 33%;
     align-items: flex-end;
+    justify-content: center;
+    transition: min-width 1s cubic-bezier(0, 0.2, 1, 0.92);
     @media screen and (min-width: 1024px) {
       display: flex;
     }
     img {
       margin-bottom: 8.5rem;
+      transition: margin 1s cubic-bezier(0, 0.2, 1, 0.92);
+      @media (prefers-reduced-motion: no-preference) {
+        animation: Breathing infinite 2s alternate;
+      }
+    }
+    &.done {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+
+      img {
+        margin: 0;
+      }
+      & + section {
+        display: none;
+      }
+    }
+    .complete {
+      color: $dark;
+      font-size: 30px;
+      text-transform: capitalize;
     }
   }
   .main-section {
@@ -37,17 +63,11 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
+@keyframes Breathing {
   from {
-    transform: rotate(0deg);
+    transform: scale(1.02);
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
 }

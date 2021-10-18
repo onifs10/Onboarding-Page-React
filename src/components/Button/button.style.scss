@@ -1,6 +1,7 @@
 @import '../../colors';
 button {
   padding: 1rem 1.5rem;
+  margin-right: 5px;
   color: white;
   font-weight: bold;
   font-size: 14px;
@@ -11,8 +12,20 @@ button {
   cursor: pointer;
   &.danger {
     background-color: $danger;
+    &:hover {
+      box-shadow: 1px 1px 1px 4px rgba($danger, 0.2);
+    }
   }
   &.primary {
     background-color: $primary;
+    &:hover {
+      box-shadow: 1px 1px 1px 4px rgba($primary, 0.2);
+    }
+  }
+  &:disabled {
+    background-color: $gray-7d;
+    &:hover {
+      box-shadow: 1px 1px 1px 4px rgba($gray-7d, 0.2);
+    }
   }
 }
