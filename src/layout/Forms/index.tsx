@@ -4,6 +4,8 @@ import './forms.style.scss';
 import Navs from '../../components/Navs';
 import { navItem } from '../../components/Navs/navs.type';
 import { Steps } from '../../components/steps';
+import SocialForm from './Socials';
+import BuisnessForm from './Buisness';
 
 const navItemsData: navItem[] = [
   {
@@ -27,23 +29,51 @@ const Forms = (): JSX.Element => {
   const handleChange = (id: number) => {
     setSelected(id);
   };
+
+  const checkTab = (id: number) => {
+    setNavItems((items) =>
+      items.map((item) => {
+        if (item.id === id) {
+          return { ...item, isChecked: true };
+        }
+        return item;
+      })
+    );
+  };
+  const handleAccountForm = () => {
+    // make axios call to api with data passed from the form
+    checkTab(1);
+    setSelected(2);
+  };
+
+  const handleSocialForm = () => {
+    // make axios call to api with data passed from the form
+    checkTab(2);
+    setSelected(3);
+  };
+
+  const handleBuisnessForm = () => {
+    // make axios call to api with data passed from the form
+    checkTab(3);
+  };
+
   return (
     <div className="forms-wrapper">
       <Navs navItems={navItems} onSelect={handleChange} selected={selected} />
       <Steps current={selected} length={navItems.length} />
       <div className="forms">
         <div className={`forms_div ${selected > 1 ? 'left' : ''}`}>
-          <VerifyAccount onComplete={() => {}} />
+          <VerifyAccount onComplete={handleAccountForm} />
         </div>
         <div
           className={`forms_div ${selected > 2 ? 'left' : ''} ${
             selected < 2 ? 'right' : ''
           }`}
         >
-          {/* <VerifyAccount onComplete={() => {}} /> */}
+          <SocialForm onComplete={handleSocialForm} />
         </div>
         <div className={`forms_div ${selected < 3 ? 'right' : ''}`}>
-          {/* <VerifyAccount onComplete={() => {}} /> */}
+          <BuisnessForm onComplete={handleBuisnessForm} />
         </div>
       </div>
     </div>

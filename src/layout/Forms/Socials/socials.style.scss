@@ -2,34 +2,27 @@
 .inputs-div {
   width: 100%;
   transition-delay: 0ms;
-  transition: max-height 1s cubic-bezier(0, 0.2, 1, 0.92);
-  max-height: 50vh;
-  overflow-y: hidden;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid $gray-e9;
-
-  &.hide {
-    max-height: 0;
-  }
-  .bvn-inputs,
-  .pa-inputs {
-    &.hide {
-      display: none;
-    }
-  }
-  .bvn-inputs {
+  .abeg-inputs {
+    max-width: calc(50% - (40px));
     input {
       font-size: 20px;
-      letter-spacing: 5px;
+    }
+    @media screen and (max-width: 1300px) {
+      max-width: calc(50% - (20px));
+    }
+    @media screen and (max-width: 1150px) {
+      max-width: none;
     }
   }
-  .pa-inputs {
+  .social-inputs {
     input {
       font-size: 20px;
       letter-spacing: 2px;
     }
   }
-  .pa-inputs {
+  .social-inputs {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 80px;

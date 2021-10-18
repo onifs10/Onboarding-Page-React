@@ -5,10 +5,12 @@ import FormDetails from '../../../components/Details';
 import Input from '../../../components/Input';
 import RadioInputs from '../../../components/RadioInputGroup';
 import { RadioInputType } from '../../../components/RadioInputGroup/radio.type';
+import SelectInput from '../../../components/Select';
+import { SelectOption } from '../../../components/Select/select.type';
 import { AccountVerificationProps, VerificationMethod } from '../forms.type';
 import './account.style.scss';
 
-const Options: RadioInputType<VerificationMethod>[] = [
+const Options: RadioInputType[] = [
   {
     value: VerificationMethod.BVN,
     label: 'BVN',
@@ -16,6 +18,17 @@ const Options: RadioInputType<VerificationMethod>[] = [
   {
     value: VerificationMethod.PA,
     label: 'Personal Account Number',
+  },
+];
+
+const Banks: SelectOption[] = [
+  {
+    label: 'Guaranty Trust Bank',
+    value: 'GTB',
+  },
+  {
+    label: 'First Bank',
+    value: 'FB',
   },
 ];
 
@@ -29,22 +42,31 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
 
   const [showInputs, setShowInputs] = useState<boolean>(true);
 
-  const handleChangeMethod = (value: VerificationMethod) => {
+  const handleChangeMethod = (value: string | number) => {
     setShowInputs((value) => !value);
     setTimeout(() => {
-      setMethod(value);
+      setMethod(+value as VerificationMethod);
       setShowInputs((value) => !value);
     }, 1100);
+  };
+
+  const handleformSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    //validation should be improved to give user feedback
+    if (
+      (method === VerificationMethod.BVN && !bvnNumber) ||
+      (method === VerificationMethod.PA && !bank && !accountNumber)
+    ) {
+      return;
+    }
+    e.preventDefault();
+    Props.onComplete &&
+      Props.onComplete({ data: { bvnNumber, accountNumber, bank } });
   };
 
   return (
     <>
       <FormDetails title="Verify Account" />
-      <form
-        action="post"
-        onSubmit={(e) => e.preventDefault()}
-        className="account"
-      >
+      <form action="post" onSubmit={handleformSubmit} className="account">
         <RadioInputs
           name="method"
           inputs={Options}
@@ -63,9 +85,13 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
               label={'Bank Verification Number (11-digits)'}
               value={bvnNumber}
               onChange={(value: string) => {
+                if (isNaN(+value) || value.length > 11) {
+                  return;
+                }
                 setBvnNumber(value);
               }}
               required={method === VerificationMethod.BVN}
+              type="text"
             />
             <BvnInfo />
           </div>
@@ -79,11 +105,15 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
               label={'Account Number'}
               value={accountNumber}
               onChange={(value: string) => {
+                if (isNaN(+value)) {
+                  return;
+                }
                 setAccount(value);
               }}
               required={method === VerificationMethod.PA}
+              type="text"
             />
-            <Input
+            <SelectInput
               name={'bank'}
               label={'Select Bank'}
               value={bank}
@@ -91,6 +121,7 @@ const VerifyAccount = (Props: AccountVerificationProps): JSX.Element => {
                 setBank(value);
               }}
               required={method === VerificationMethod.PA}
+              options={Banks}
             />
           </div>
         </div>

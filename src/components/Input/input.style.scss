@@ -13,3 +13,33 @@
     padding: 0 0.5rem;
   }
 }
+
+.input-group-tagged {
+  margin-top: 2.7rem;
+  width: 100%;
+  .input-container {
+    display: flex;
+    width: 100%;
+    border-radius: 12px;
+    height: 54px;
+    border: 1px solid $gray-e4;
+    overflow: hidden;
+    input {
+      outline: none;
+      font-size: 16px;
+      padding: 0 0.5rem;
+      flex: auto;
+      border: none;
+      height: 100%;
+    }
+    .tag {
+      width: 50px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: $gray-7d;
+    }
+  }
+}

@@ -1,11 +1,10 @@
-import { VerificationMethod } from '../../layout/Forms/forms.type';
 import Label from '../Label';
 import './radio.style.scss';
-import { RadionInputsType } from './radio.type';
+import { RadioInputsType } from './radio.type';
 import Radio from './single.component';
 
-const RadioInputs = (
-  Props: RadionInputsType<VerificationMethod>
+const RadioInputs: (Prop: RadioInputsType<string | number>) => JSX.Element = (
+  Props
 ): JSX.Element => {
   return (
     <>
@@ -18,10 +17,7 @@ const RadioInputs = (
             label={item.label}
             checked={Props.default === item.value}
             key={item.value}
-            onChange={(e: any) =>
-              Props.onChange &&
-              Props.onChange(+e.target.value as VerificationMethod)
-            }
+            onChange={(e) => Props.onChange && Props.onChange(+e.target.value)}
           />
         ))}
       </div>

@@ -1,6 +1,6 @@
 import { RadioInputType } from './radio.type';
 
-const Radio = (Props: RadioInputType<any>): JSX.Element => {
+const Radio = (Props: RadioInputType): JSX.Element => {
   return (
     <label className="input-container">
       <input
